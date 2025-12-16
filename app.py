@@ -88,7 +88,7 @@ if api_key:
     # 모델 초기화 (한 번만 로드)
     if "chat_model" not in st.session_state:
         st.session_state.chat_model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash",
+            model_name="gemini-pro",
             system_instruction=SYSTEM_INSTRUCTION
         )
         # 중요: start_chat에 history로 예제 데이터를 넣어줌 (인컨텍스트 러닝 핵심)
@@ -129,4 +129,5 @@ if api_key:
         except Exception as e:
             st.error(f"오류가 발생했습니다: {e}")
 else:
+
     st.warning("왼쪽 사이드바에 Gemini API 키를 입력해주세요.")
